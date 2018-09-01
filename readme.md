@@ -119,6 +119,8 @@ docker container run -p 8000:3000 -it dockerlearning npm run serverstart
 - /bin/bash：容器启动以后，内部第一个执行的命令。这里是启动 Bash，保证用户可以使用 Shell。
 - npm run serverstart：容器启动以后，可通过这个命令来启动node 服务
 
+访问`http://localhost:8000/example`即是访问docker中启动的web 服务
+
 #### cmd
 上一节的例子里面，容器启动以后，需要手动输入命令node demos/01.js。我们可以把这个命令写在 Dockerfile 里面，这样容器启动以后，这个命令就已经执行了，不用再手动输入了。
 
@@ -128,6 +130,7 @@ COPY . /app
 WORKDIR /app
 RUN npm install
 EXPOSE 3000
+CMD node demos/01.js
 ```
 
 - RUN命令在 image 文件的构建阶段执行，执行结果都会打包进入 image 文件
