@@ -1,0 +1,8 @@
+{
+    "comments": true,
+    "presets": ["es2015"],
+    "plugins":[
+        "babel-plugin-transform-runtime",
+        "add-module-exports"
+    ]
+}
