@@ -2,7 +2,7 @@
 
 /**
  * xxx组件，用于干啥干啥
- * @author alanzhang <alanzhang@futunn.com>
+ * @author alanzhang <alanzhang001@qq.com>
  * @example
  * var exeample1 = new Example();
  * var exeample2 = new Example();
@@ -27,8 +27,8 @@ export default Example;
 // //----------------静态方法工具类组件实例----------------------------------------
 //
 // /**
-//  * @author alanzhang <alanzhang@futunn.com>
-//  * @author alanzhang <alanzhang@futunn.com>
+//  * @author alanzhang <alanzhang001@qq.com>
+//  * @author alanzhang <alanzhang001@qq.com>
 //  * @module Example
 //  */
 // export {
