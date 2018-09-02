@@ -6,6 +6,7 @@
 - 启动docker：直接点击docker图标
 - docker 切换image源看这里：[Docker Hub 源使用帮助
 ](https://mirrors.ustc.edu.cn/help/dockerhub.html)
+- docker hub: <https://hub.docker.com/r/alanzhang001/dockerlearning/>
 - 一些命令
 
 ```
@@ -48,7 +49,7 @@ bash container stop [containerID]
 # 如果docker run命令运行容器的时候，没有使用-it参数或者执行的一个命令不是/bin/bash，就要用这个命令进入容器。一旦进入了容器，就可以在容器的 Shell 执行命令了
 docker container exec -it [containerID] /bin/bash
 ```
-
+>container 关键字可以省略
 #### 创建image
 
 以<https://github.com/AlanZhang001/dockerlearning>为例：
@@ -135,6 +136,19 @@ CMD node demos/01.js
 
 - RUN命令在 image 文件的构建阶段执行，执行结果都会打包进入 image 文件
 - CMD命令则是在容器启动后执行。另外，一个 Dockerfile 可以包含多个RUN命令，但是只能有一个CMD命令。
+
+#### 发布image
+
+```
+# 登陆
+docker login
+# 为本地的 image 标注用户名和版本
+# docker image tag [imageName] [username]/[repository]:[tag]
+docker image tag dockerlearning alanzhang001/dockerlearning
+# 发布
+# docker image push [username]/[repository]:[tag]
+
+```
 
 #### 一些参考资料
 - [Docker 入门教程](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
