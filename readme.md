@@ -7,6 +7,7 @@
 - docker 切换image源看这里：[Docker Hub 源使用帮助
 ](https://mirrors.ustc.edu.cn/help/dockerhub.html)
 - docker hub: <https://hub.docker.com/r/alanzhang001/dockerlearning/>
+- docker store：<https://store.docker.com/>
 - 一些命令
 
 ```
@@ -150,5 +151,13 @@ docker image tag dockerlearning alanzhang001/dockerlearning
 
 ```
 
+#### 一些自己创建的image文件
+
+
+|dockerfiles
+|   |--base:自己构建的基础镜像，包含npm git
+|   |--demo1:把当前项目通过dockerfile来clone 和启动
+
 #### 一些参考资料
-- [Docker 入门教程](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
+- [Docker 入门教程-比较基础](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
+- [Docker —— 从入门到实践](https://yeasy.gitbooks.io/docker_practice/image/build.html)
