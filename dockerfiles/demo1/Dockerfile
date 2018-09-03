@@ -1,5 +1,5 @@
 # 以base作为基础镜像，安装一个项目
-FROM base
+FROM alanzhang001/base:1.0.0
 COPY . /app
 WORKDIR /app
 RUN git clone https://github.com/AlanZhang001/dockerlearning.git

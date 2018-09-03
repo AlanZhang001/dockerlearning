@@ -10,7 +10,7 @@
 - docker store：<https://store.docker.com/>
 - 一些命令
 
-```
+```html
 # 列出本机的所有 image 文件。
 docker image ls
 
@@ -57,7 +57,7 @@ docker container exec -it [containerID] /bin/bash
 
 ##### 1. 准备源码
 
-```
+```html
 git clone https://github.com/AlanZhang001/dockerlearning
 cd dockerlearning
 ```
@@ -65,7 +65,7 @@ cd dockerlearning
 ##### 2. 创建.dockerignore
 指定创建dockerfile时需要排除的文件路径
 
-```
+```html
 # 创建文件
 touch .dockerignore
 # 指定路径
@@ -77,7 +77,7 @@ npm-debug.log
 ```
 ##### 3. 创建dockerfile
 
-```
+```html
 # 创建文件
 touch Dockerfile
 # 写入内容
@@ -107,7 +107,7 @@ docker image build -t dockerlearning:0.0.1 .
 
 ##### 5. 利用image文件生成容器
 
-```
+```html
 docker container run -p 8000:3000 -it dockerlearning /bin/bash
 #或则
 docker container run -p 8000:3000 -it dockerlearning:0.0.1 /bin/bash
@@ -126,7 +126,7 @@ docker container run -p 8000:3000 -it dockerlearning npm run serverstart
 #### cmd
 上一节的例子里面，容器启动以后，需要手动输入命令node demos/01.js。我们可以把这个命令写在 Dockerfile 里面，这样容器启动以后，这个命令就已经执行了，不用再手动输入了。
 
-```
+```html
 FROM node:8.4
 COPY . /app
 WORKDIR /app
@@ -140,7 +140,7 @@ CMD node demos/01.js
 
 #### 发布image
 
-```
+```html
 # 登陆
 docker login
 # 为本地的 image 标注用户名和版本
@@ -153,10 +153,11 @@ docker image tag dockerlearning alanzhang001/dockerlearning
 
 #### 一些自己创建的image文件
 
-
+```html
 |dockerfiles
-|   |--base:自己构建的基础镜像，包含npm git
+|   |--base:自己构建的基础镜像，包含npm、git
 |   |--demo1:把当前项目通过dockerfile来clone 和启动
+```
 
 #### 一些参考资料
 - [Docker 入门教程-比较基础](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
