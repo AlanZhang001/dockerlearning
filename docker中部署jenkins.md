@@ -1,6 +1,6 @@
-## docker 中部署jenkins
+# docker 中部署jenkins
 
-#### 安装jenkins
+## 安装jenkins
 
 ```shell
 
@@ -16,10 +16,12 @@ mkdir /Users/$(whoami)/jenkins_home
 # jenkins/jenkins:lts： 是我们刚刚search到的image
 # 注意：这一步不要使用-d(后台运行模式)
 docker run --name jenkins_node  -v /Users/$(whoami)/jenkins_home:/var/jenkins_home -p 8081:8080 -p 50000:50000 jenkins/jenkins:lts
+
 # waiting....
 # log会告诉你 启动成功 ：Started ServerConnector@380fb434{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
 # .....
 # Jenkins is fully up and running
+# 【TIPS】如果失败，多试几次这步
 
 # 4. 访问 http://localhost:8081/,会提示你在/var/jenkins_home/secrets/initialAdminPassword中有密码
 # 根据3中的-v字段，可以知道，/var/jenkins_home/secrets/initialAdminPassword
@@ -27,5 +29,36 @@ docker run --name jenkins_node  -v /Users/$(whoami)/jenkins_home:/var/jenkins_ho
 # 拿到密码登陆后台
 cat /Users/$(whoami)/jenkins_home/secrets/initialAdminPassword
 
+# 5. 后台提示自定义jenkins，选择安装推荐的插件
+# waiting....
+# waiting....
+# waiting....
+# 可以吃个饭再来，有点慢
 
+# 6. 创建管理员用户,记住密码啥的完事
+# 用户名：jenkins
+# 密码：123456a
+# 全名：jenkins
+# 电子邮箱：alanzhang001@qq.com
+# 接下来一路保存并完成，完事
+
+# 7. 如果完成后，页面一面空白，就访问 localhost:8080/restart，重启jenkins即可
 ```
+
+**安装完成**
+![init](./asserts/0.png)
+**安装推荐插件**
+![安装插件](./asserts/1.png)
+
+## 安装几个他的必备插件
+
+#### Publish Over SSH
+
+jenkins 可用于制动化部署，说白了就是 登录目标主机、传输文件、执行一堆命令。
+
+#### nodejs
+
+自动化的工作少不了nodejs
+
+## 参考资料
+- https://juejin.im/post/5db9474bf265da4d1206777e
