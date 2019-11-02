@@ -54,13 +54,37 @@ cat /Users/$(whoami)/jenkins_home/secrets/initialAdminPassword
 
 ## 安装几个他的必备插件
 
-#### Publish Over SSH
-
-jenkins 可用于制动化部署，说白了就是 登录目标主机、传输文件、执行一堆命令。
-
 #### nodejs
 
 自动化的工作少不了nodejs
+
+```shell
+# 1. 进入http://localhost:8081/pluginManager/available，搜索nodejs,直接安装
+# 或者通过 系统管理-插件管理-可选插件进入
+
+# 2. 配置node版本，这步才是决定真正的node版本，从 http://localhost:8081/configureTools/ 进入，选择NodeJS 安装-新增 NodeJS
+# 或者通过
+# 这里选择了一个长期稳定的版本 node 10
+
+```
+
+**安装nodejs**
+> 这个1.3.4并不是 node真正的版本，后面还是需要再选择的
+![直接安装](./asserts/3.png)
+
+**选择node版本**
+![选择node版本](./asserts/4.png)
+
+## 配置jenkins任务
+
+#### 自动化构件
+
+#### 自动化部署
+
+###### 1. Publish Over SSH
+jenkins 可用于制动化部署，说白了就是 登录目标主机、传输文件、执行一堆命令。
+
+
 
 ## 参考资料
 - https://juejin.im/post/5db9474bf265da4d1206777e
