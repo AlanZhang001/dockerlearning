@@ -77,7 +77,7 @@ cat /Users/$(whoami)/jenkins_home/secrets/initialAdminPassword
 
 ## 配置jenkins任务
 
-#### 自动化构件
+#### 自动化构建
 
 #### 自动化部署
 
