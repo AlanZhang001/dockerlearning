@@ -51,6 +51,10 @@ cat /Users/$(whoami)/jenkins_home/secrets/initialAdminPassword
 docker logs --tail="10" jenkins_node
 ```
 
+> 步骤3中为什么需要映射多个端口？
+> 虽然推荐一个容器只做一件事情（一个服务），但是也存在一个服务需要多个端口的情况，比如邮件服务，收发需要使用多个端口。
+> 本例中没有用到多端口，仅做记录
+
 **安装完成**
 ![init](./asserts/0.png)
 **安装推荐插件**
