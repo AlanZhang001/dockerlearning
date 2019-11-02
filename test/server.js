@@ -13,7 +13,7 @@ const exec = require('child_process').exec;
 // 配置路由
 let router = new Router();
 
-router.post('/query1', async(ctx) => {
+router.post('/query1', async (ctx)=> {
     let result = {
         code: 0,
         message: ''

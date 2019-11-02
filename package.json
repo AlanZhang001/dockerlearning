@@ -2,68 +2,29 @@
   "name": "npm-example",
   "version": "1.0.0",
   "description": "npm-example描述",
-  "main": "./es5/index.js",
-  "dependencies": {
-    "babel-runtime": "^6.23.0"
-  },
   "directories": {
     "example": "example",
     "test": "test"
   },
   "scripts": {
     "jsdoc": "jsdoc -c jsdocconf.json -r",
-    "babel": "babel src --out-dir es5",
-    "build-es5": "webpack --env.NODE_ENV=build-es5",
-    "build-es5-min": "webpack --env.NODE_ENV=build-es5-min",
-    "build-es6": "webpack --env.NODE_ENV=build-es6",
-    "build-es6-min": "webpack --env.NODE_ENV=build-es6-min",
-    "build": "npm run babel && npm run build-es5 && npm run build-es5-min && npm run build-es6 && npm run build-es6-min",
-    "seleniumstart": "selenium-standalone install && selenium-standalone start",
-    "example": "node test/server.js -- example",
-    "serverstart": "node test/server.js -- test",
-    "pretest": "npm install",
-    "teststart": "mocha ./test/e2etest/*.test.js > test/report.log",
-    "test": "npm-run-all -p -r serverstart teststart"
+    "example": "node test/server.js -- example"
   },
   "repository": {
     "type": "git"
   },
-  "devDependencies": {
-    "angular": "^1.5.11",
-    "css-loader": "^0.28.4",
-    "style-loader": "^0.18.2",
-    "babel-cli": "^6.24.0",
-    "babel-loader": "^6.4.1",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015": "^6.24.0",
-    "chai": "^3.5.0",
-    "child_process": "^1.0.2",
-    "npm-run-all": "^4.1.1",
-    "docdash": "^0.4.0",
+  "dependencies": {
     "eslint": "^3.19.0",
     "eslint-config-futu": "^1.0.3",
     "extend": "^3.0.1",
-    "gulp": "^3.9.1",
-    "jsdoc": "^3.4.3",
     "koa": "^2.3.0",
     "koa-logger": "^3.0.0",
     "koa-router": "^7.2.1",
     "koa-static": "^3.0.0",
     "koa-useragent": "^1.0.0",
-    "mkdirs": "0.0.2",
-    "mocha": "^3.2.0",
-    "opener": "^1.4.3",
-    "selenium-standalone": "^6.5.0",
-    "selenium-webdriver": "^3.5.0",
-    "uglifyjs-webpack-plugin": "^1.1.4",
-    "webpack": "^2.3.3"
+    "opener": "^1.4.3"
   },
-  "keywords": [
-    "npm-example功能点1",
-    "npm-example功能点2",
-    "npm-example功能点3"
-  ],
+  "keywords": [],
   "author": "alanzhang",
   "license": "ISC"
 }
