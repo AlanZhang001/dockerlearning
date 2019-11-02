@@ -49,6 +49,8 @@ cat /Users/$(whoami)/jenkins_home/secrets/initialAdminPassword
 ![init](./asserts/0.png)
 **安装推荐插件**
 ![安装插件](./asserts/1.png)
+**启动成功**
+![启动成功](./asserts/2.png)
 
 ## 安装几个他的必备插件
 
