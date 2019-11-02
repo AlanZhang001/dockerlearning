@@ -43,6 +43,9 @@ cat /Users/$(whoami)/jenkins_home/secrets/initialAdminPassword
 # 接下来一路保存并完成，完事
 
 # 7. 如果完成后，页面一面空白，就访问 localhost:8080/restart，重启jenkins即可
+
+# 8. 后续再跑该镜像
+# docker start jenkins_node
 ```
 
 **安装完成**
