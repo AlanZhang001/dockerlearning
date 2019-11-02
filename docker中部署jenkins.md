@@ -79,11 +79,14 @@ cat /Users/$(whoami)/jenkins_home/secrets/initialAdminPassword
 
 #### 自动化构建
 
+以本项目为例，做测试，没啥可说的，直接上图吧。
+
+![](./asserts/jenkins-line2.png)
+
 #### 自动化部署
 
-###### 1. Publish Over SSH
+###### 1. 安装Publish Over SSH
 jenkins 可用于制动化部署，说白了就是 登录目标主机、传输文件、执行一堆命令。
-
 
 
 ## 参考资料
