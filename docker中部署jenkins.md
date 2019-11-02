@@ -46,6 +46,9 @@ cat /Users/$(whoami)/jenkins_home/secrets/initialAdminPassword
 
 # 8. 后续再跑该镜像
 # docker start jenkins_node
+
+# 9. 再次启动时控制台可能没有日志，这么查看
+docker logs --tail="10" jenkins_node
 ```
 
 **安装完成**
