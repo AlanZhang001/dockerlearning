@@ -9,6 +9,18 @@
 
 docker的下载及安装见<https://github.com/AlanZhang001/dockerlearning>
 
+## 定制自己的dockerfile
+
+cnpmjs是完善的系统，我们需要根据自己的环境做自定义，然后根据其提供的模板dockerfile build一个镜像用于部署。
+
+
+```shell
+# 1、本地 clone cnpmjs.org至本地
+cd ~/github
+git clone https://github.com/cnpm/cnpmjs.org.git
+cd cnpmjs.org
+```
+
 ## 运行linux
 
 这里搭建了一个包含centos，git，node的基镜像。
@@ -22,13 +34,14 @@ docker container run -it --privileged=true alanzhang001/base:1.0.0  /bin/bash
 # 2.1退出后如何启动
 docker container start [containerid]
 docker container exec -it [containerID] /bin/bash
-# 3. 安装几个必要的软件
-yum install wget
-yum install sudo
 ```
 
 ## 安装mysql
 ```shell
+# 0. 安装几个必要的软件
+yum install wget
+yum install sudo
+
 # 1 安装rpm：软件包的管理工具
 wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
 # 2
@@ -41,3 +54,5 @@ sudo systemctl start mysqld
 
 ## 参考
 - centeos上安装mysql：<https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-centos-7>
+- https://kwokronny.github.io/201907/docker-cnpm-devlop/
+- https://github.com/cnpm/cnpmjs.org/wiki/Deploy
