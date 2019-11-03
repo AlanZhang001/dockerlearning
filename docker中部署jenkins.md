@@ -102,7 +102,7 @@ docker logs --tail="10" jenkins_node
 
 不过后续还是提示`Connection error sending email, retrying once more in 10 seconds…`
 
-这是一个别人踩过的坑：<https://blog.csdn.net/wangxiaoli19920218/article/details/88536397>,不再深究。
+这是一个别人踩过的坑：<https://blog.csdn.net/wangxiaoli19920218/article/details/88536397>,涉及到邮件服务,不再深究。
 
 #### 自动化部署
 
