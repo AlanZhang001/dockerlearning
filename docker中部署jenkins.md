@@ -95,6 +95,15 @@ docker logs --tail="10" jenkins_node
 
 ![](./asserts/jenkins-line2.png)
 
+配置完成之后，发现并没有收到邮件，原来是邮件收发配置错误，正确的是这个：
+
+![](./asserts/05.png)
+![](./asserts/06.png)
+
+不过后续还是提示`Connection error sending email, retrying once more in 10 seconds…`
+
+这是一个别人踩过的坑：<https://blog.csdn.net/wangxiaoli19920218/article/details/88536397>,不再深究。
+
 #### 自动化部署
 
 ###### 1. 安装Publish Over SSH
