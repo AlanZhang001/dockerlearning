@@ -104,6 +104,8 @@ docker logs --tail="10" jenkins_node
 
 这是一个别人踩过的坑：<https://blog.csdn.net/wangxiaoli19920218/article/details/88536397>,涉及到邮件服务,不再深究。
 
+更全的邮件配置见这里：https://www.cnblogs.com/zuxing/articles/9360364.html
+
 #### 自动化部署
 
 ###### 1. 安装Publish Over SSH
