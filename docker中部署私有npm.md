@@ -1,5 +1,9 @@
 ## 学习一下搭建私有npm
 
+## 可以用的部署方案
+
+目前，比较多的是 采用cnpmjs或sinopia进行私有npm的部署，两者最大的不同是，sinopia部署简单一些，但是支持的功能没有cnpmjs强大。自己实践时，也是实践cnpmjs
+
 ## 下载并运行docker
 搭建私有npm需要linux环境，使用docker是成本最低的选择，同时迁移非常方便。
 
