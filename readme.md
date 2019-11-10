@@ -8,7 +8,7 @@
 ](https://mirrors.ustc.edu.cn/help/dockerhub.html)
 - docker hub: <https://hub.docker.com/r/alanzhang001/dockerlearning/>
 - docker store：<https://store.docker.com/>
-- dockerfile 支持的命令的详细说明：<>https://www.cnblogs.com/panwenbin-logs/p/8007348.html
+- dockerfile 支持的命令的详细说明：<https://www.cnblogs.com/panwenbin-logs/p/8007348.html>
 - 一些命令
 
 ```html

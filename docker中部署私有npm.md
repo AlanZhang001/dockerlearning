@@ -13,12 +13,61 @@ docker的下载及安装见<https://github.com/AlanZhang001/dockerlearning>
 
 cnpmjs是完善的系统，我们需要根据自己的环境做自定义，然后根据其提供的模板dockerfile build一个镜像用于部署。
 
+#### 1、本地 clone cnpmjs.org至本地
 
 ```shell
-# 1、本地 clone cnpmjs.org至本地
 cd ~/github
 git clone https://github.com/cnpm/cnpmjs.org.git
 cd cnpmjs.org
+```
+
+#### 2、参看cnpmjs.org/下的Dockerfile
+
+这个dockerfile就是要用于生成镜像的file
+
+```shell
+## 引用node镜像
+FROM node:12
+
+MAINTAINER Bono Lv <lvscar  {aT} gmail.com>
+
+# Working enviroment:工作环境变量
+# CNPM_DIR这个目录，在docker中会用来存放cnpmjs.org项目的文件
+# CNPM_DATA_DIR 没懂干啥
+ENV \
+    CNPM_DIR="/var/app/cnpmjs.org" \
+    CNPM_DATA_DIR="/var/data/cnpm_data"
+
+# 创建上面的目录
+RUN mkdir  -p ${CNPM_DIR}
+
+# 指定接下来的工作路径，类似于cd命令
+WORKDIR ${CNPM_DIR}
+
+# 将cnpmjs.org项目的package.json 拷贝至CNPM_DIR
+COPY package.json ${CNPM_DIR}
+
+# 设置源，用于加快速度
+RUN npm set registry https://registry.npm.taobao.org
+
+# 安装依赖，不包括devDependencies
+RUN npm install --production
+
+# 将cnpmjs.org项目的文件拷贝至CNPM_DIR，包括node_modules
+COPY .  ${CNPM_DIR}
+COPY docs/dockerize/config.js  ${CNPM_DIR}/config/
+
+# 开放7001和7002端口,外部可以通过 其他端口映射到这2个端口
+EXPOSE 7001/tcp 7002/tcp
+
+
+VOLUME ["/var/data/cnpm_data"]
+
+# Entrypoint
+# 容器启动以后执行的命令
+CMD ["node", "dispatch.js"]
+
+
 ```
 
 ## 运行linux
