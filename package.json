@@ -1,14 +1,14 @@
 {
-  "name": "npm-example",
+  "name": "dockerlearning",
   "version": "1.0.0",
-  "description": "npm-example描述",
+  "description": "dockerlearning",
   "directories": {
     "example": "example",
     "test": "test"
   },
   "scripts": {
-    "jsdoc": "jsdoc -c jsdocconf.json -r",
-    "example": "node test/server.js -- example"
+    "example": "node test/server.js -- example",
+    "build" : "echo 'jenkins build javascript'"
   },
   "repository": {
     "type": "git"
