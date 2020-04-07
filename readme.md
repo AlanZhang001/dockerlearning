@@ -56,13 +56,13 @@ bash container stop [containerID]
 #进入一个正在运行的 docker 容器
 # 如果docker run命令运行容器的时候，没有使用-it参数或者执行的一个命令不是/bin/bash，就要用这个命令进入容器。一旦进入了容器，就可以在容器的 Shell 执行命令了
 docker container exec -it [containerID] /bin/bash
-```
->container 关键字可以省略
 
 # logs
 # -f 实时显示
 # --tail="10" 显示最后几行
 docker logs --tail="10" xxx
+```
+>container 关键字可以省略
 
 #### 创建image
 
@@ -172,6 +172,10 @@ CMD node demos/01.js
 ```js
 docker run = docker create + docker start
 ```
+
+#### 镜像的导入导出 vs 容器的导入导出
+
+[TODO]
 
 #### 发布image
 
