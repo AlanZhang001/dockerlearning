@@ -8,7 +8,7 @@
   },
   "scripts": {
     "example": "node test/server.js -- example",
-    "build" : "echo 'jenkins build javascript'"
+    "build": "echo 'jenkins build javascript'"
   },
   "repository": {
     "type": "git"
