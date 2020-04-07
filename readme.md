@@ -17,6 +17,12 @@ docker image ls
 
 # 删除 image 文件
 docker image rm [imageName]
+# 或者docker rmi
+docker rmi [imageName]
+
+# 查看镜像详细信息
+# 有时候你拿到是镜像，但是并不能看到dockerfile是，所以通过inspect可以获取到image的详细信息
+docker image inspect [imageName]
 
 # 将 image 文件从仓库抓取到本地
 # 由于 Docker 官方提供的 image 文件，都放在library组里面，所以它的是默认组，可以省略
