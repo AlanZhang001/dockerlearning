@@ -151,7 +151,7 @@ docker commit -m"testtag" -a "alazhang" f4a5def1277c alanzhang001/dockerlearning
 ##### 7. 镜像的导入导出
 [TODO]
 
-#### cmd
+####  8. cmd
 上一节的例子里面，容器启动以后，需要手动输入命令node demos/01.js。我们可以把这个命令写在 Dockerfile 里面，这样容器启动以后，这个命令就已经执行了，不用再手动输入了。
 
 ```html
@@ -166,16 +166,20 @@ CMD node demos/01.js
 - RUN命令在 image 文件的构建阶段执行，执行结果都会打包进入 image 文件
 - CMD命令则是在容器启动后执行。另外，一个 Dockerfile 可以包含多个RUN命令，但是只能有一个CMD命令。
 
-#### docker create vs docker run 区别
+#### 9. docker create vs docker run 区别
 [TODO]
 
 ```js
 docker run = docker create + docker start
 ```
 
-#### 镜像的导入导出 vs 容器的导入导出
+#### 10. 镜像的导入导出 vs 容器的导入导出
 
 [TODO]
+
+##### 11. docker cp
+
+##### 12. docker history
 
 #### 发布image
 
