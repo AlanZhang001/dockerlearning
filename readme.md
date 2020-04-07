@@ -58,6 +58,12 @@ bash container stop [containerID]
 docker container exec -it [containerID] /bin/bash
 ```
 >container 关键字可以省略
+
+# logs
+# -f 实时显示
+# --tail="10" 显示最后几行
+docker logs --tail="10" xxx
+
 #### 创建image
 
 以<https://github.com/AlanZhang001/dockerlearning>为例：
