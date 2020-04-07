@@ -132,7 +132,15 @@ docker container run -p 8000:3000 -it dockerlearning npm run serverstart
 
 
 ##### 6. docker commit
-TODO
+从容器创建一个新的镜像。
+
+```js
+# -m 提交信息
+# -a author
+# f4a5def1277c 为 contianerid
+# alanzhang001/dockerlearning:2.0.0 具体的镜像及版本
+docker commit -m"testtag" -a "alazhang" f4a5def1277c alanzhang001/dockerlearning:2.0.0
+```
 
 #### cmd
 上一节的例子里面，容器启动以后，需要手动输入命令node demos/01.js。我们可以把这个命令写在 Dockerfile 里面，这样容器启动以后，这个命令就已经执行了，不用再手动输入了。
