@@ -181,6 +181,18 @@ docker run = docker create + docker start
 
 ##### 12. docker history
 
+```sh
+# 使用history命令查看镜像历史,只能查看到大致信息，
+docker history demo1 
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+4bd0a2b3e1bb        19 months ago       /bin/sh -c #(nop)  CMD ["/bin/sh" "-c" "cd /…   0B
+930396d3f4d8        19 months ago       /bin/sh -c #(nop)  EXPOSE 3000                  0B
+9ba7df5bd2d5        19 months ago       /bin/sh -c cd /app/dockerlearning && npm ins…   109MB
+dc5f5fdf149a        19 months ago       /bin/sh -c git clone https://github.com/Alan…   18.9MB
+# 如果要查看详细的CREATED BY 命令，需要用 --no-trunc=true
+docker history demo1  --no-trunc=true
+```
+
 #### 发布image
 
 ```html
