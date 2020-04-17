@@ -179,6 +179,18 @@ docker run = docker create + docker start
 
 ##### 11. docker cp
 
+```sh
+# 从容器中复制文件或目录到执行命令所在机器的指定路径
+docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-
+docker cp f7cafa2ea5b7:/app/dockerlearning/webpack.config.js ~/test|-
+
+# 从执行命令所在的机器复制文件或目录到容器内部的指定路径
+docker cp [OPTIONS] SRC_PATH CONTAINER:DEST_PATH
+# 官方的提示会是SRC_PATH|-，但是实际有 |-并不能成功
+docker cp ~/test/package-lock.json f7cafa2ea5b7:/app/dockerlearning/
+
+```
+
 ##### 12. docker history
 
 ```sh
