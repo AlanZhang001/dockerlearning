@@ -1,6 +1,6 @@
 # 学一下docker
 
-#### 一些记录
+## 一些记录
 
 - 安装：[mac](https://store.docker.com/editions/community/docker-ce-desktop-mac)
 - 启动docker：直接点击docker图标
@@ -9,8 +9,10 @@
 - docker hub: <https://hub.docker.com/r/alanzhang001/dockerlearning/>
 - docker store：<https://store.docker.com/>
 - dockerfile 支持的命令的详细说明：<https://www.cnblogs.com/panwenbin-logs/p/8007348.html>
-- 一些命令
 
+## 常用命令
+
+#### 高频使用命令
 ```html
 # 列出本机的所有 image 文件。
 docker image ls
@@ -136,22 +138,20 @@ docker container run -p 8000:3000 -it dockerlearning npm run serverstart
 
 访问`http://localhost:8000/example`即是访问docker中启动的web 服务
 
+#### 6. 发布image
 
-##### 6. docker commit
-从容器创建一个新的镜像。
+```html
+# 登陆
+docker login
+# 为本地的 image 标注用户名和版本
+# docker image tag [imageName] [username]/[repository]:[tag]
+docker image tag dockerlearning alanzhang001/dockerlearning
+# 发布
+# docker image push [username]/[repository]:[tag]
 
-```js
-# -m 提交信息
-# -a author
-# f4a5def1277c 为 contianerid
-# alanzhang001/dockerlearning:2.0.0 具体的镜像及版本
-docker commit -m"testtag" -a "alazhang" f4a5def1277c alanzhang001/dockerlearning:2.0.0
 ```
 
-##### 7. 镜像的导入导出
-[TODO]
-
-####  8. cmd
+####  7. cmd
 上一节的例子里面，容器启动以后，需要手动输入命令node demos/01.js。我们可以把这个命令写在 Dockerfile 里面，这样容器启动以后，这个命令就已经执行了，不用再手动输入了。
 
 ```html
@@ -166,18 +166,36 @@ CMD node demos/01.js
 - RUN命令在 image 文件的构建阶段执行，执行结果都会打包进入 image 文件
 - CMD命令则是在容器启动后执行。另外，一个 Dockerfile 可以包含多个RUN命令，但是只能有一个CMD命令。
 
-#### 9. docker create vs docker run 区别
+#### 其他命令
+
+##### 1. docker commit
+从容器创建一个新的镜像。
+
+```js
+# -m 提交信息
+# -a author
+# f4a5def1277c 为 contianerid
+# alanzhang001/dockerlearning:2.0.0 具体的镜像及版本
+docker commit -m"testtag" -a "alazhang" f4a5def1277c alanzhang001/dockerlearning:2.0.0
+```
+
+##### 2. 镜像的导入导出
+[TODO]
+
+
+
+##### 3. docker create vs docker run 区别
 [TODO]
 
 ```js
 docker run = docker create + docker start
 ```
 
-#### 10. 镜像的导入导出 vs 容器的导入导出
+##### 4. 镜像的导入导出 vs 容器的导入导出
 
 [TODO]
 
-##### 11. docker cp
+##### 5. docker cp
 
 ```sh
 # 从容器中复制文件或目录到执行命令所在机器的指定路径
@@ -191,11 +209,11 @@ docker cp ~/test/package-lock.json f7cafa2ea5b7:/app/dockerlearning/
 
 ```
 
-##### 12. docker history
+##### 6. docker history
 
 ```sh
 # 使用history命令查看镜像历史,只能查看到大致信息，
-docker history demo1 
+docker history demo1
 IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
 4bd0a2b3e1bb        19 months ago       /bin/sh -c #(nop)  CMD ["/bin/sh" "-c" "cd /…   0B
 930396d3f4d8        19 months ago       /bin/sh -c #(nop)  EXPOSE 3000                  0B
@@ -203,19 +221,6 @@ IMAGE               CREATED             CREATED BY                              
 dc5f5fdf149a        19 months ago       /bin/sh -c git clone https://github.com/Alan…   18.9MB
 # 如果要查看详细的CREATED BY 命令，需要用 --no-trunc=true
 docker history demo1  --no-trunc=true
-```
-
-#### 发布image
-
-```html
-# 登陆
-docker login
-# 为本地的 image 标注用户名和版本
-# docker image tag [imageName] [username]/[repository]:[tag]
-docker image tag dockerlearning alanzhang001/dockerlearning
-# 发布
-# docker image push [username]/[repository]:[tag]
-
 ```
 
 #### 一些自己创建的image文件
