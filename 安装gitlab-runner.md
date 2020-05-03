@@ -1,4 +1,6 @@
-### 
+### 二进制文件安装
+
+<https://docs.gitlab.com/runner/register/index.html#gnulinux>
 
 ```sh
 # 上172.28.249.39机器
