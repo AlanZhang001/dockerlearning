@@ -60,7 +60,7 @@ Runner registered successfully. Feel free to start it, but if it's running alrea
 配置
 ```sh
 # 编辑配置文件
-vi /etc//congitlab-runnerfig.toml
+vi /etc/congitlab-runnerfig.toml
 # 加入这行，表示可以使用本地的镜像，而不是再远程没有获取到时报错
 pull_policy = "if-not-present"
 ```
@@ -69,6 +69,56 @@ pull_policy = "if-not-present"
 ```sh
 # 如果没启动docker先启动
 service docker restart
-# 创建node-gulp镜像
+# 启动gitlab-runner
+sudo gitlab-runner restart
+```
 
+### 通过docker安装
+```sh
+docker run  \
+    # 后台运行
+    -d \
+    # 指定名称
+    --name gitlab-runner \
+    -v /var/run/docker.sock:/var/run/docker.sock  \
+    # gitlab-runer的配置文件放在/etc/gitlab-runner/config.toml中，通过挂载目录的形式在外部做修改
+    # 同时，以便重启或者重建后配置仍然生效
+    -v /data/gitlab-runner/config:/etc/gitlab-runner  \
+    # 用于executor内解析gitlab.futunn.com 域名
+    --add-host gitlab.futunn.com:172.24.22.100 \
+    # gitlab-runner镜像版本
+    gitlab/gitlab-runner:latest 
+
+```
+
+### config.toml配置详解
+```sh
+#
+concurrent = 4
+check_interval = 3
+log_level = "debug"
+[session_server]
+  session_timeout = 1800
+
+[[runners]]
+  name = "172.24.16.51"
+  url = "http://gitlab.futunn.com"
+  token = "4qnxsy-mm5X2r2BZ8ypX"
+  executor = "docker"
+  request_concurrency = 4
+  limit = 4
+  [runners.docker]
+    tls_verify = false
+    image = "node:alpine"
+    privileged = false
+    disable_entrypoint_overwrite = false
+    oom_kill_disable = false
+    extra_hosts = ["gitlab.futunn.com:172.24.22.100","webstaticresource-10000538.cos.ap-shanghai.myqcloud.com:123.206.239.100","registry.npm.oa.com:172.24.22.71", "walle.oa.com:172.28.6.10", "apitest.server.com:172.24.22.11"]
+    pull_policy = "if-not-present"
+    disable_cache = false
+    volumes = ["/data/gitlab-runner/builds:/builds:rw", "/data/gitlab-runner/cache:/cache:rw"]
+    shm_size = 0
+  [runners.cache]
+    [runners.cache.s3]
+    [runners.cache.gcs]
 ```
