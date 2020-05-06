@@ -146,7 +146,7 @@ log_level = "debug" # 日志级别，定义为debug，用输出runner的所有�
 [[runners]]
   name = "alanzhangmac"             # runner 名称
   url = "http://gitlab.futunn.com/" # gitlab地址
-  token = "eBwTw5V9VkJFxzJzthb1"    # runner token,不是注册时的token
+  token = "eBwTw5V9VkJFxzJzthb1"    # runner token,不是注册时的token,runner注册完成之后，gitlab返回改token给runner，runner以后每次请求携带该token
   executor = "docker"               # exector
   [runners.custom_build_dir]        # 未用到
   [runners.cache]                   # 分布式缓存，比如存在云端，未用到
