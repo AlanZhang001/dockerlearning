@@ -234,3 +234,11 @@ RUN npm install gulp@3.9.1 npm@6.0.0  -g --registry=http://registry.npm.oa.com
 ```sh
 docker build -t node-gulp -f node-gulp.Dockerfile .
 ```
+
+**移除某个runner**
+```sh
+# 先进入gitlab-runner
+docker exec -it gitlab-runner /bin/bash
+# 执行 unregister
+gitlab-runner unregister  --config /data/gitlab-runner/config/config.toml --url http://gitlab.futunn.com --token 7c7c2651c62c470b787b75352c471d
+```
