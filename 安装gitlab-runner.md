@@ -42,7 +42,7 @@ Runtime platform arch=amd64 os=linux pid=14408 revision=fa86510e version=11.9.2
 Running in system-mode.
 
 Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
-http://gitlab.futunn.com           # gitlab 的访问路径
+http://gitlab.xx.com           # gitlab 的访问路径
 Please enter the gitlab-ci token for this runner:
 rsGibJ**********6os_F              # 在项目的settting/CICD/Runners下获取
 Please enter the gitlab-ci description for this runner:
@@ -90,8 +90,8 @@ docker run \
     `# gitlab-runer的配置文件放在/etc/gitlab-runner/config.toml中，通过挂载目录的形式在外部做修改` \
     `# 同时，以便重启或者重建后配置仍然生效` \
     -v /data/gitlab-runner/config:/etc/gitlab-runner  \
-    `# 用于executor内解析gitlab.futunn.com 域名` \
-    --add-host gitlab.futunn.com:172.24.22.100 \
+    `# 用于executor内解析gitlab.xx.com 域名` \
+    --add-host gitlab.xxx.com:172.xx.xx.xx \
     `# gitlab-runner镜像版本` \
     gitlab/gitlab-runner:latest 
 ```
@@ -108,7 +108,7 @@ Runtime platform arch=amd64 os=linux pid=7 revision=ce065b93 version=12.10.1
 Running in system-mode.
 
 Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
-http://gitlab.futunn.com/
+http://gitlab.xx.com/
 Please enter the gitlab-ci token for this runner:
 c_RUEgXDopxQjMPmyqri
 Please enter the gitlab-ci description for this runner:
@@ -127,7 +127,7 @@ Runner registered successfully. Feel free to start it, but if it's running alrea
 
 主要添加这2个配置
 ```sh
-extra_hosts = ["gitlab.futunn.com:172.24.22.100","registry.npm.oa.com:172.24.22.71", "walle.oa.com:172.28.6.10", "apitest.server.com:172.24.22.11"]
+extra_hosts = ["gitlab.xx.com:172.24.22.100"]
 pull_policy = "if-not-present"
 ```
 
@@ -145,7 +145,7 @@ log_level = "debug" # 日志级别，定义为debug，用输出runner的所有�
 
 [[runners]]
   name = "alanzhangmac"             # runner 名称
-  url = "http://gitlab.futunn.com/" # gitlab地址
+  url = "http://gitlab.xx.com/"     # gitlab地址
   token = "eBwTw5V9VkJFxzJzthb1"    # runner token,不是注册时的token,runner注册完成之后，gitlab返回改token给runner，runner以后每次请求携带该token
   executor = "docker"               # exector
   [runners.custom_build_dir]        # 未用到
@@ -160,7 +160,7 @@ log_level = "debug" # 日志级别，定义为debug，用输出runner的所有�
     oom_kill_disable = false        # 如果发生内存不足错误，不要终止容器中的进程，为false表示要终止
     disable_cache = false           # 不禁用本地缓存
                                     # 配置域名解析，docker内部无法解析这些域名
-    extra_hosts = ["gitlab.futunn.com:172.24.22.100","registry.npm.oa.com:172.24.22.71", "walle.oa.com:172.28.6.10"]
+    extra_hosts = ["gitlab.xx.com:172.24.22.100"]
                                     # 将Docker守护程序主机上的目录装载到容器中. 当您要将目录存储在容器外部时，此功能很有用.rw表示可读可写
                                     # /builds,/cache为runner 构建结果的目录以及cache的目录
     volumes = ["/data/gitlab-runner/builds:/builds:rw", "/data/gitlab-runner/cache:/cache:rw"]
@@ -182,9 +182,9 @@ log_level = "debug"
 
 [[runners]]
   # runner 名称
-  name = "172.24.16.51"
+  name = "172.xx.xx.xx"
   # gitlab地址
-  url = "http://gitlab.futunn.com"
+  url = "http://gitlab.xxx.com"
   # token
   token = "4qnxsy-mm5X2r2BZ8ypX"
   # executor
@@ -203,7 +203,7 @@ log_level = "debug"
     disable_entrypoint_overwrite = false
     oom_kill_disable = false
     # 配置域名解析，docker内部无法解析这些域名
-    extra_hosts = ["gitlab.futunn.com:172.24.22.100","registry.npm.oa.com:172.24.22.71", "walle.oa.com:172.28.6.10", "apitest.server.com:172.24.22.11"]
+    extra_hosts = ["gitlab.xx.com:172.24.xx.xx"]
     # 首先检查本地是否有所用的镜像，如果没有再尝试远程拉取，通过哦这个配置可以避免某些软件或库的频繁安装
     pull_policy = "if-not-present"
     # 不禁用本地缓存
